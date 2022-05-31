@@ -1,5 +1,5 @@
 <template>
-  <div class="md:flex md:flex-shrink-0">
+  <div class="flex flex-shrink-0">
     <div class="flex items-center justify-between px-6 py-4 bg-transparent md:flex-shrink-0 md:justify-center md:w-56">
       <Link class="mt-1" href="/">
           <Logo class="navbar-brand" width="200" height="30" />

@@ -1,11 +1,10 @@
 <template>
-  <div class="flex items-center justify-between mt-16 px-6 py-4 md:flex-shrink-0 md:justify-center">
-    
-    <div class="pl-5 justify-start">
-      <h1 class="load-hidden" style=" visibility: visible; opacity: 1; font-style: bold; font-size: 40px;" >
-        <b>RunCloud Calculator</b>
+  <div class="flex items-center justify-between px-6 md:flex-shrink-0 md:justify-center">
+    <div class="justify-start">
+      <h1 class="opacity-100 font-bold text-5xl visible">
+        RunCloud Calculator
       </h1>
-      <p class="text-opacity-6 load-hidden pb-6" style="visibility: visible; opacity: 0.6; font-size: 30px">
+      <p class="opacity-60 visible pb-6 text-3xl">
         Estimate your server budget with our cloud calculator anytime and anywhere.
       </p>
       <Link href="/calculate">

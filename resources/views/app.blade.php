@@ -20,7 +20,7 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
         @inertiaHead
     </head>
-    <body class="antialiased" style="font-family: 'Montserrat'; color: #ffffff; background-color: #204361; height: 100vh">
+    <body class="antialiased bg-sky-900 text-white h-screen" style="font-family: 'Montserrat';">
         @inertia
         
     </body>
