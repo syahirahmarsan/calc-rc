@@ -9,7 +9,16 @@
         <form @submit.prevent="update">
             <div class="flex justify-center w-full">
                 <div class="w-60 m-2">
-                    <Label for="estimation" value="Max users" />
+                    <div class="flex justify-between">
+                        <Label for="estimation" value="Max users " />
+                        <Tooltip
+                            text="Note that:
+                            1. Do not select your monthly, weekly, or daily number of users but rather the number of users on your website at the same time during peak use.
+                            2. If you're just starting out, we recommend selecting 100 or less for this question as to avoid unnecessarily high costs in the early days of your business."
+                            >
+                            <InformationCircleIcon class="h-5 w-5 text-gray-200 hover:animate-bounce" />
+                        </Tooltip>
+                    </div>
                     <Input type="number" min="1" name="estimation" id="estimation" class="mt-1 block w-full" v-model="form.estimation" required autocomplete="off" />
                 </div>
                 <div class="w-60 m-2">
@@ -96,6 +105,8 @@ import Button from "@/Components/Button.vue";
 import Label from "@/Components/Label.vue";
 import Input from "@/Components/Input.vue";
 import Select from '@/Components/SelectInput.vue'
+import { InformationCircleIcon } from '@heroicons/vue/solid'
+import Tooltip from '@/Components/ToolTips.vue'
 
 export default {
   components: {
@@ -105,6 +116,8 @@ export default {
     Input,
     Label,
     Select,
+    InformationCircleIcon,
+    Tooltip
   },
   props: {
     lists: Object,
