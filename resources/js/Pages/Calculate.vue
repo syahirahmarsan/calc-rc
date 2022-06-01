@@ -37,7 +37,7 @@
 
                 <div class="row">
                     <div class="col text-center mt-3 pt-6 pb-16">
-                        <ButtonClick @click="isHidden = true; isShown = true;" >
+                        <ButtonClick @click="isHidden = true; isShown = true; isClicked = true;" :disabled="form.estimation == null || form.estimation == 0" >
                             Continue
                         </ButtonClick>
                     </div>
@@ -54,7 +54,7 @@
                 <div class="flex justify-center">
                     <div class="w-60 m-2">
                         <InputLabel for="webapp" value="Web app type" />
-                        <SelectInput v-model="form.webapp">
+                        <SelectInput v-model="form.webapp" required>
                             <option value="" disabled selected>Select web app type</option>
                             <option value="static">Static web app</option>
                             <option value="dynamic">Dynamic web app</option>
@@ -68,7 +68,7 @@
                         <ButtonClick @click="isHidden = false; isShown = false;" class="mr-3" >
                             Back
                         </ButtonClick>
-                        <ButtonClick type="submit" :disabled="form.processing" @click="isShown = false" >
+                        <ButtonClick type="submit" :disabled="form.processing || form.webapp == null || form.webapp == '' " @click="isShown = false" >
                             Calculate!
                         </ButtonClick>
                         
@@ -121,6 +121,9 @@ export default {
         LoadingSpin,
         InformationCircleIcon,
         Tooltip
+    },
+    props: {
+        errors: Object,
     },
     layout: Layout,
     data() {

@@ -21650,6 +21650,9 @@ __webpack_require__.r(__webpack_exports__);
     InformationCircleIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_8__["default"],
     Tooltip: _Components_ToolTips_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
+  props: {
+    errors: Object
+  },
   layout: _Layouts_Layout_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
   data: function data() {
     return {
@@ -21787,7 +21790,7 @@ var _hoisted_1 = ["type"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
     type: $props.type,
-    "class": "inline-flex items-center px-5 py-3 bg-yellow-500 border border-black rounded-md font-medium text-base text-black hover:bg-yellow-700 hover:text-white active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-300 hover:scale-105"
+    "class": "inline-flex items-center px-5 py-3 bg-yellow-500 border border-black rounded-md font-medium text-base text-black hover:bg-yellow-700 hover:text-white active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-300 hover:scale-105 disabled:bg-slate-500 disabled:text-slate-200 disabled:scale-100"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")], 8
   /* PROPS */
   , _hoisted_1);
@@ -22061,10 +22064,13 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "tooltiptext whitespace-pre-line px-2 lg:w-96 md:w-52"
 };
+var _hoisted_3 = {
+  "class": "mx-4"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.text), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.text), 1
   /* TEXT */
-  )]);
+  )])]);
 }
 
 /***/ }),
@@ -22285,7 +22291,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[1] || (_cache[1] = function ($event) {
       $data.isHidden = true;
       _ctx.isShown = true;
-    })
+      _ctx.isClicked = true;
+    }),
+    disabled: $setup.form.estimation == null || $setup.form.estimation == 0
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_10];
@@ -22293,14 +22301,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.isShown ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputLabel, {
+  }, 8
+  /* PROPS */
+  , ["disabled"])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.isShown ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputLabel, {
     "for": "webapp",
     value: "Web app type"
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SelectInput, {
     modelValue: $setup.form.webapp,
     "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
       return $setup.form.webapp = $event;
-    })
+    }),
+    required: ""
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_15, _hoisted_16, _hoisted_17, _hoisted_18];
@@ -22325,7 +22336,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ButtonClick, {
     type: "submit",
-    disabled: $setup.form.processing,
+    disabled: $setup.form.processing || $setup.form.webapp == null || $setup.form.webapp == '',
     onClick: _cache[4] || (_cache[4] = function ($event) {
       return _ctx.isShown = false;
     })
@@ -22361,7 +22372,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "container-fluid pt-9 pb-16"
+  "class": "container-fluid p-10"
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -22438,7 +22449,7 @@ var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_18 = {
-  "class": "grid lg:grid-cols-6 sm:grid-cols-2 md:grid-cols-3 pb-5 place-content-center"
+  "class": "grid lg:grid-cols-6 sm:grid-cols-2 md:grid-cols-3 place-content-center"
 };
 var _hoisted_19 = {
   "class": "px-6 py-4 text-center m-auto"
@@ -22530,7 +22541,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $data.form.webapp = $event;
     }),
-    "class": "w-full"
+    "class": "w-full",
+    required: ""
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_7, _hoisted_8, _hoisted_9, _hoisted_10];
@@ -22546,7 +22558,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "font-weight": "500",
       "height": "30"
     },
-    disabled: $data.form.processing,
+    disabled: $data.form.processing || $data.form.estimation == 0,
     type: "submit"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -22874,7 +22886,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.tooltip {\r\n  position: relative;\r\n  display: inline-block;\n}\n.tooltip .tooltiptext {\r\n  visibility: hidden;\r\n  background-color: #c8c8c8;\r\n  color: #000000;\r\n  text-align: center;\r\n  border-radius: 6px;\r\n  padding: 10px 0;\r\n  margin-left: 25px;\r\n  margin-top: -20px;\r\n\r\n  /* Position the tooltip */\r\n  position: absolute;\r\n  z-index: 1;\n}\n.tooltip:hover .tooltiptext {\r\n  visibility: visible;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.tooltip {\r\n  position: relative;\r\n  display: inline-block;\n}\n.tooltip .tooltiptext {\r\n  visibility: hidden;\r\n  background-color: #ffffff;\r\n  color: #000000;\r\n  text-align: center;\r\n  border-radius: 6px;\r\n  padding: 10px 0;\r\n  margin-left: 25px;\r\n  margin-top: -20px;\r\n\r\n  /* Position the tooltip */\r\n  position: absolute;\r\n  z-index: 1;\n}\n.tooltip:hover .tooltiptext {\r\n  visibility: visible;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
