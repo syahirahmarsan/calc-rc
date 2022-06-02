@@ -54,7 +54,7 @@
                 We think these servers might suits you.
             </div>
 
-            <div class="grid lg:grid-cols-6 sm:grid-cols-2 md:grid-cols-3 place-content-center justify-items-center">
+            <div class="grid grid-flow-row auto-rows-max hover:auto-rows-min place-content-center justify-items-center">
                 <div v-for="post in lists.data" :key="post.id" class="rounded overflow-hidden shadow-lg bg-white m-2">                
                     <div class="px-6 py-4 text-center m-auto">
                       <div hidden>
