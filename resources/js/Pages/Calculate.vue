@@ -37,7 +37,7 @@
 
                 <div class="row">
                     <div class="col text-center mt-3 pt-6 pb-16">
-                        <Button @click="isHidden = true; isShown = true; isClicked = true;" :disabled="form.estimation == null || form.estimation == 0" >
+                        <Button @click="isHidden = true; isShown = true; isClicked = true;" :disabled="form.estimation == null || form.estimation <= 0" >
                             Continue
                         </Button>
                     </div>
