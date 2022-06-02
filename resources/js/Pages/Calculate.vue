@@ -31,7 +31,7 @@
                             </Tooltip>
                         </div>
                         
-                        <Input type="number" min="1" v-model="form.estimation" name="estimation" id="estimation" class="mt-1 block w-full" autocomplete="off" required/>
+                        <Input type="number" min="1" v-model="form.estimation" name="estimation" id="estimation" class="mt-1 block w-full" v-on:input="validity.valid||(value='');" autocomplete="off" required/>
                     </div>
                 </div>
 
