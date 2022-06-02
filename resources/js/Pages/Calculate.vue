@@ -21,7 +21,7 @@
                 <div class="flex justify-center">                    
                     <div class="w-60 m-2">
                         <div class="flex justify-between">
-                            <InputLabel for="estimation" value="Max users " />
+                            <Label for="estimation" value="Max users " />
                             <Tooltip
                                 text="Note that:
                                 1. Do not select your monthly, weekly, or daily number of users but rather the number of users on your website at the same time during peak use.
@@ -31,15 +31,15 @@
                             </Tooltip>
                         </div>
                         
-                        <InputNumber type="number" v-model="form.estimation" name="estimation" id="estimation" class="mt-1 block w-full" autocomplete="off" required/>
+                        <Input type="number" min="1" v-model="form.estimation" name="estimation" id="estimation" class="mt-1 block w-full" autocomplete="off" required/>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col text-center mt-3 pt-6 pb-16">
-                        <ButtonClick @click="isHidden = true; isShown = true; isClicked = true;" :disabled="form.estimation == null || form.estimation == 0" >
+                        <Button @click="isHidden = true; isShown = true; isClicked = true;" :disabled="form.estimation == null || form.estimation == 0" >
                             Continue
-                        </ButtonClick>
+                        </Button>
                     </div>
                 </div>
 
@@ -53,24 +53,24 @@
 
                 <div class="flex justify-center">
                     <div class="w-60 m-2">
-                        <InputLabel for="webapp" value="Web app type" />
-                        <SelectInput v-model="form.webapp" required>
+                        <Label for="webapp" value="Web app type" />
+                        <Select v-model="form.webapp" required>
                             <option value="" disabled selected>Select web app type</option>
                             <option value="static">Static web app</option>
                             <option value="dynamic">Dynamic web app</option>
                             <option value="ecommerce">E-commerce</option>
-                        </SelectInput>
+                        </Select>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col text-center mt-3 pt-6 pb-16">
-                        <ButtonClick @click="isHidden = false; isShown = false;" class="mr-3" >
+                        <Button @click="isHidden = false; isShown = false;" class="mr-3" >
                             Back
-                        </ButtonClick>
-                        <ButtonClick type="submit" :disabled="form.processing || form.webapp == null || form.webapp == '' " @click="isShown = false" >
+                        </Button>
+                        <Button type="submit" :disabled="form.processing || form.webapp == null || form.webapp == '' " @click="isShown = false" >
                             Calculate!
-                        </ButtonClick>
+                        </Button>
                         
                     </div>
                 </div>
@@ -87,26 +87,16 @@
                 <LoadingSpin />
             </div>
         </div>
-
-        <div v-if="info" class="rounded overflow-hidden shadow-lg bg-gray-200 m-2 w-2/4 text-center text-lg mx-auto">
-            <div class="px-6 py-4 text-center m-auto text-black">
-                <b>Note that: </b><br> 
-                <br>The maximum number of simultaneous users are
-                <br>- Static web app = 15000.
-                <br>- Dynamic web app = 3800.
-                <br>- E-commerce web app = 1900.
-            </div>
-        </div>
     </div>
 </template>
 
 <script>
 import { Head, useForm } from '@inertiajs/inertia-vue3'
 import Layout from '@/Layouts/Layout.vue'
-import ButtonClick from '@/Components/Button.vue'
-import InputLabel from '@/Components/Label.vue'
-import InputNumber from '@/Components/Input.vue'
-import SelectInput from '@/Components/SelectInput.vue'
+import Button from '@/Components/Button.vue'
+import Label from '@/Components/Label.vue'
+import Input from '@/Components/Input.vue'
+import Select from '@/Components/SelectInput.vue'
 import LoadingSpin from '@/Components/SpinnerLoad.vue'
 import { InformationCircleIcon } from '@heroicons/vue/solid'
 import Tooltip from '@/Components/ToolTips.vue'
@@ -114,10 +104,10 @@ import Tooltip from '@/Components/ToolTips.vue'
 export default {
     components:{
         Head,
-        ButtonClick,
-        InputLabel,
-        InputNumber,
-        SelectInput,
+        Button,
+        Label,
+        Input,
+        Select,
         LoadingSpin,
         InformationCircleIcon,
         Tooltip
@@ -143,7 +133,6 @@ export default {
         submit() {
             this.form.post(route("results"));
             isShown = false;
-            info = false;
         },
     },
 
