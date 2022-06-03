@@ -2,7 +2,7 @@
     <div class="tooltip">
         <slot />
         <span class="tooltiptext whitespace-pre-line px-2 lg:w-96 md:w-52">
-            {{ text }}
+            <p class="mx-4">{{ text }}</p>
         </span>
     </div>
 </template>
@@ -26,7 +26,7 @@ export default {
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  background-color: #c8c8c8;
+  background-color: #ffffff;
   color: #000000;
   text-align: center;
   border-radius: 6px;

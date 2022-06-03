@@ -1,6 +1,6 @@
 <template>
   <Head title="Results" />
-    <div class="container-fluid pt-9 pb-16">
+    <div class="container-fluid p-10">
          <div class="mb-5 ">
             <h1 class="text-center text-5xl opacity-100 visible font-bold mb-3" >
                 RunCloud Calculator
@@ -23,7 +23,7 @@
                 </div>
                 <div class="w-60 m-2">
                     <Label for="webapp" value="Web application type" />
-                    <Select v-model="form.webapp" class="w-full">
+                    <Select v-model="form.webapp" class="w-full" required>
                         <option value="" disabled>Select web app type</option>
                         <option value="static">Static web app</option>
                         <option value="dynamic">Dynamic web app</option>
@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="m-2 self-end">
-                    <Button style="font-size: 16px; font-weight: 500; height: 30;" :disabled="form.processing" type="submit">
+                    <Button style="font-size: 16px; font-weight: 500; height: 30;" :disabled="form.processing || form.estimation == 0" type="submit">
                         Recalculate!
                     </Button>
                 </div>
@@ -54,7 +54,7 @@
                 We think these servers might suits you.
             </div>
 
-            <div class="grid lg:grid-cols-6 sm:grid-cols-2 md:grid-cols-3 pb-5 place-content-center">
+            <div class="grid grid-flow-row auto-rows-max hover:auto-rows-min place-content-center justify-items-center">
                 <div v-for="post in lists.data" :key="post.id" class="rounded overflow-hidden shadow-lg bg-white m-2">                
                     <div class="px-6 py-4 text-center m-auto">
                       <div hidden>

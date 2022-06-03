@@ -22,7 +22,7 @@ class CreatePlansTable extends Migration
             $table->integer('storage');
             $table->double('transfer');
             $table->double('price');
-            $table->string('additional_info')->nullable();
+            $table->string('info')->nullable();
             $table->timestamps();
         });
     }
