@@ -1,6 +1,6 @@
 <template>
     <Head title="Calculate" />
-    <div class="row place-content-center p-10 my-auto ">
+    <div class="py-6 row place-content-center p-10 my-auto ">
         <div class="mx-auto pb-6">
             <h1 class="text-center text-5xl opacity-100 visible font-bold" >
                 RunCloud Calculator
@@ -21,7 +21,7 @@
                 <div class="flex justify-center">                    
                     <div class="w-60 m-2">
                         <div class="flex justify-between">
-                            <Label for="estimation" value="Max users " />
+                            <Label for="estimation" value="Max simultaneous users " />
                             <Tooltip
                                 text="Note that:
                                 1. Do not select your monthly, weekly, or daily number of users but rather the number of users on your website at the same time during peak use.
@@ -31,15 +31,19 @@
                             </Tooltip>
                         </div>
                         
-                        <Input type="number" min="1" v-model="form.estimation" name="estimation" id="estimation" class="mt-1 block w-full" v-on:input="validity.valid||(value='');" autocomplete="off" required/>
+                        <Input type="number" min="1" v-model="form.estimation" name="estimation" id="estimation" class="mt-1 block w-full" autocomplete="off" required/>
                     </div>
+                </div>
+
+                <div v-if="form.estimation <= 0" class="flex justify-center text-xs text-white italic w-60 mx-auto text-center"> 
+                    Maximum number of simultaneous users must be an integer number!
                 </div>
 
                 <div class="row">
                     <div class="col text-center mt-3 pt-6 pb-16">
-                        <Button @click="isHidden = true; isShown = true; isClicked = true;" :disabled="form.estimation == null || form.estimation <= 0" >
+                        <ButtonClick @click="isHidden = true; isShown = true; isClicked = true;" :disabled="form.estimation == null || form.estimation <= 0 " >
                             Continue
-                        </Button>
+                        </ButtonClick>
                     </div>
                 </div>
 
