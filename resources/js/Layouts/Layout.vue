@@ -1,5 +1,5 @@
 <template>
-  <div class="py-6 m-auto w-11/12 h-full">
+  <div class="m-auto w-11/12 h-full">
     <navbar />
     <div class="row align-items-center">
       <slot />            

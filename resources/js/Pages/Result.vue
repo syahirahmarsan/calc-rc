@@ -1,16 +1,16 @@
 <template>
   <Head title="Results" />
-    <div class="container-fluid p-10">
+    <div class="py-6 container-fluid p-10">
          <div class="mb-5 ">
             <h1 class="text-center text-5xl opacity-100 visible font-bold mb-3" >
                 RunCloud Calculator
             </h1>
         </div>
         <form @submit.prevent="update">
-            <div class="flex justify-center w-full">
-                <div class="w-60 m-2">
+            <div class="grid lg:grid-cols-3 md:grid-cols-3 lg:w-2/4 md:w-5/6 sm:w-full gap-4 mx-auto">
+                <div class="w-full m-2">
                     <div class="flex justify-between">
-                        <Label for="estimation" value="Max users " />
+                        <Label for="estimation" value="Max simultaneous users " />
                         <Tooltip
                             text="Note that:
                             1. Do not select your monthly, weekly, or daily number of users but rather the number of users on your website at the same time during peak use.
@@ -20,8 +20,11 @@
                         </Tooltip>
                     </div>
                     <Input type="number" min="1" name="estimation" id="estimation" class="mt-1 block w-full" v-model="form.estimation" required autocomplete="off" />
+                    <span v-if="form.estimation <= 0" class="text-xs text-white italic w-60 mx-auto text-center"> 
+                        Must be an integer number!
+                    </span>
                 </div>
-                <div class="w-60 m-2">
+                <div class="w-full m-2">
                     <Label for="webapp" value="Web application type" />
                     <Select v-model="form.webapp" class="w-full" required>
                         <option value="" disabled>Select web app type</option>
@@ -31,8 +34,8 @@
                     </Select>
                 </div>
 
-                <div class="m-2 self-end">
-                    <Button style="font-size: 16px; font-weight: 500; height: 30;" :disabled="form.processing || form.estimation == 0" type="submit">
+                <div class="m-2 pt-6 w-full">
+                    <Button class="w-full justify-center" style="font-size: 16px; font-weight: 500; height: 30;" :disabled="form.processing || form.estimation <= 0" type="submit">
                         Recalculate!
                     </Button>
                 </div>
@@ -54,7 +57,7 @@
                 We think these servers might suits you.
             </div>
 
-            <div class="grid grid-flow-row auto-rows-max hover:auto-rows-min place-content-center justify-items-center">
+            <div class="grid grid-flow-col auto-cols-max place-content-center justify-items-center">
                 <div v-for="post in lists.data" :key="post.id" class="rounded overflow-hidden shadow-lg bg-white m-2">                
                     <div class="px-6 py-4 text-center m-auto">
                       <div hidden>
